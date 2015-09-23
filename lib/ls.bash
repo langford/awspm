@@ -2,7 +2,7 @@ _ls() {
 	if [ $# -eq 1 ]; then
 		if [ $(find $PROFILES_DIR -maxdepth 1 -type d | wc -l) -ge 2 ]; then
 			echo "Here are the known profiles:"
-			find $PROFILES_DIR -maxdepth 1 -type d | tail -n +2 | xargs -r -n 1 basename
+			find $PROFILES_DIR -maxdepth 1 -type d | tail -n +2 | xargs -n 1 basename
 		else
 			echo "No profiles found."
 		fi
@@ -22,7 +22,7 @@ _ls() {
 
 		if [ $(find $PROFILE_DIR -maxdepth 1 -type f | wc -l) -ge 1 ]; then
 			echo "Here are the known users for the profile (${PROFILE_NAME}):"
-			find $PROFILE_DIR -maxdepth 1 -type f | xargs -r -n 1 basename | sed s/\.conf//g
+			find $PROFILE_DIR -maxdepth 1 -type f | xargs -n 1 basename | sed s/\.conf//g
 		else
 			echo "No users found."
 		fi
