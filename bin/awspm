@@ -1,0 +1,33 @@
+#!/bin/bash
+set -e
+# Setup
+AWSPM_DIR=$HOME/.awspm
+PROFILES_DIR=$AWSPM_DIR/profiles
+source $AWSPM_DIR/lib/load_lib.bash
+
+# Test if a profile exists
+if [ $(find ${AWSPM_DIR}/profiles -maxdepth 1 -type d | wc -l) -eq 1 ]; then
+	echo "++++++++++++++++++++++++++++++++++++++++++++++++"
+	echo "+                    WARNING                   +"
+	echo "+ You don't have any profiles configured.      +"
+	echo "+ Run: awspm create <profile name> <user name> +"
+	echo "+ to setup a profile.                          +"
+	echo "++++++++++++++++++++++++++++++++++++++++++++++++"
+fi
+
+# Test if we've passed in any arguments
+if [ $# -eq 0 ]; then
+	_help
+	exit 1
+fi
+
+case "$1" in
+	c|create) create $@;;
+	cl|clear) clear;;
+	v|view) view $@;;
+	l|ls) _ls $@;;
+	rm) _rm $@;;
+	bash) _bash $@;;
+	*) _help;;
+esac
+
