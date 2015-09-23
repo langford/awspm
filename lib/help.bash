@@ -5,13 +5,13 @@ Usage:
   awspm [command] [arguments]
 
 Available commands:
-  bash: prints out a maybe useful bash helper.
-  clear: provides the commands to clear any environment varialbes awspm might set
+  bash:   prints out a maybe useful bash helper.
+  clear:  provides the commands to clear any environment varialbes awspm might set
   create: used to create or edit a profile user
-  help: prints this help documention
-  ls: lists profiles and profile users
-  rm: used to remove all profiles, a profile, or a profile user
-  view: provides the commands to load a profile user's credentials into ENV
+  help:   prints this help documention
+  ls:     lists profiles and profile users
+  rm:     used to remove all profiles, a profile, or a profile user
+  view:   provides the commands to load a profile user's credentials into ENV
 
 Examples:
 
