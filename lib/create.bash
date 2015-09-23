@@ -60,7 +60,7 @@ create() {
 
 build_config() {
 	echo "Configuration for ${PROFILE_USER} does not exist - let's create it."
-	echo -n "AWS_REGION: "
+	echo -n "AWS_DEFAULT_REGION: "
 	read aws_region
 
 	echo -n "AWS_ACCESS_KEY_ID: "
@@ -69,6 +69,6 @@ build_config() {
 	echo -n "AWS_SECRET_ACCESS_KEY: "
 	read aws_secret_access_key
 
-	conf="export AWS_REGION=${aws_region}\nexport AWS_ACCESS_KEY_ID=${aws_access_key_id}\nexport AWS_SECRET_ACCESS_KEY=${aws_secret_access_key}"
+	conf="export AWS_DEFAULT_REGION=${aws_region}\nexport AWS_ACCESS_KEY_ID=${aws_access_key_id}\nexport AWS_SECRET_ACCESS_KEY=${aws_secret_access_key}"
 	echo -e $conf | /usr/bin/env openssl rsautl -encrypt -inkey $PROFILE_PUBLIC_KEY -pubin -out $PROFILE_USER_CONF
 }
