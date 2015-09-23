@@ -30,6 +30,9 @@ create a user 'admin' for profile 'default':
 edit a user 'admin' for profile 'default':
   awspm create default admin
 
+view the conf for user 'admin' belonging to profile 'default':
+  awspm view default admin
+
 remove user 'admin' from profile 'default':
   awspm rm default admin
 
